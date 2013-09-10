@@ -1,9 +1,6 @@
 function Player(x, y){
     this.x = x;
     this.y = y;
-
-
-
 }
 
 Player.prototype.draw = function(context){
@@ -24,19 +21,19 @@ Player.prototype.draw = function(context){
 Player.prototype.update = function(context){
 
     if (Key.isDown(Key.keys.Up)){
-        this.y--;
+        this.y = Collision.getPosition(true, this.x, this.y, -1);
     }
 
     if (Key.isDown(Key.keys.Left)){
-        this.x--;
+        this.x = Collision.getPosition(false, this.x, this.y, -1);
     }
 
     if (Key.isDown(Key.keys.Right)){
-        this.x++;
+        this.x = Collision.getPosition(false, this.x, this.y, 1);
     }
 
     if (Key.isDown(Key.keys.Down)){
-        this.y++;
+        this.y = Collision.getPosition(true, this.x, this.y, 1);
     }
 
     this.draw(context);

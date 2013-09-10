@@ -67,7 +67,7 @@ Game.run = (function(){
 
 
 Game.initialize();
-Game.addPlayer(1, 2);
+Game.addPlayer(2 * Game.tileSize, 2 * Game.tileSize);
 
 // Start the game loop
 Game._intervalId = setInterval(Game.run, 0);
