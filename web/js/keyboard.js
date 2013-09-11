@@ -1,5 +1,5 @@
 var Key = {
-    pressed : false,
+    pressed : [],
     keys : {
         Left: 37,
         Up: 38,
@@ -9,15 +9,15 @@ var Key = {
 };
 
 Key.isDown = function(key){
-    return this.pressed === key;
+    return this.pressed[key];
 };
 
-Key.onKeydown = function(){
-    this.pressed = event.keyCode;
+Key.onKeydown = function(event){
+    this.pressed[event.keyCode] = true;
 };
 
-Key.onKeyup = function(){
-    this.pressed = null;
+Key.onKeyup = function(event){
+    delete this.pressed[event.keyCode];
 };
 
 window.addEventListener('keyup', function(event) { Key.onKeyup(event); }, false);
