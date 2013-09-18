@@ -6,18 +6,26 @@ Game.tileSize = 10;
 Game.initialize = function(){
     this.entities = [];
     this.context = document.getElementById("gamearea").getContext("2d");
+
+    // Draw the map
+    Map.init();
+    Map.draw();
+
+    // Lighting
+    Lighting.init();
 };
 
 Game.draw = function(){
 
     var self = this;
 
+    // Lighting
+    Lighting.draw();
+
     // Clear the screen
     this.context.clearRect(0, 0, 480, 320);
 
-    // Draw the map
-    Map.init();
-    Map.draw();
+
 
     // Loop over all the entities and draw them
     _(this.entities).each(function(entity, i){
