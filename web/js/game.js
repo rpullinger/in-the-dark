@@ -51,6 +51,10 @@ Game.addPlayer = function(x, y){
 };
 
 
+Game.finish = function(){
+    console.log('Finished');
+};
+
 
 Game.run = (function(){
 
@@ -75,7 +79,7 @@ Game.run = (function(){
 
 
 Game.initialize();
-Game.addPlayer(2 * Game.tileSize, 2 * Game.tileSize);
+Game.addPlayer(6 * Game.tileSize, 6 * Game.tileSize);
 
 // Start the game loop
 Game._intervalId = setInterval(Game.run, 0);

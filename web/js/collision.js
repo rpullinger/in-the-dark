@@ -32,5 +32,11 @@ Collision.getPosition = function(isY, x, y, distance){
 Collision.isSolidTile = function(x, y){
     var tileX = Math.floor(x / Game.tileSize);
     var tileY = Math.floor(y / Game.tileSize);
-    return this.map[tileY][tileX];
+    var tileType = this.map[tileY][tileX];
+
+    if (tileType === 2){
+        Game.finish();
+    }
+
+    return tileType === 1;
 };
